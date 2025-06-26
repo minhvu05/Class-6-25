@@ -1,0 +1,24 @@
+---
+title: "Census Tracts"
+format: html
+author: Minh Vu
+---
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+
+library(tidyverse)
+
+nyc_tracts <- read_csv("data/nyc_tracts.csv")
+# glimpse(nyc_tracts)
+
+
+ggplot(nyc_tracts, aes(x = race, y = med_income)) +
+geom_boxplot(fill = "lightblue") +
+theme_minimal() +
+labs(title = "Median Income by Race", x = "Race", y = "Median Income") +
+theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+```
